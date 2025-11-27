@@ -1,0 +1,21 @@
+{
+	"window.title": "📦 ${folderName}",
+
+	"workbench.colorCustomizations": {
+		// Example of color customisation:
+
+		// Light Modern theme values: /usr/share/code/resources/app/extensions/theme-defaults/themes/light_modern.json
+		// "titleBar.activeBackground": "#ffbf80",
+		// "titleBar.inactiveBackground": "#ffbf80",
+		// "titleBar.inactiveForeground": "#1e1e1e",
+
+		"[Atom One Dark]": {
+			// Theme values: .vscode/extensions/akamud.vscode-theme-onedark-2.3.0/themes/OneDark.json
+			// "titleBar.activeBackground": "#7d4900",
+			// "titleBar.inactiveBackground": "#7d4900",
+			// "titleBar.inactiveForeground": "#9da5b4"
+		}
+	},
+
+	"history-in-sublime-merge.path": "host-exec-sublime-merge"
+}

@@ -7,7 +7,8 @@ ZSH_THEME="robbyrussell"
 # Load oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
-zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+# Remind to update Oh My Zsh
+zstyle ':omz:update' mode reminder
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
@@ -48,12 +49,15 @@ alias nig='npm i -g'
 alias nci='npm ci'
 alias nun='npm uninstall'
 alias nug='npm uninstall -g'
-alias nr='npm run'
 alias ns='npm start'
-alias nrd='npm run dev'
+alias nr='npm run'
+# alias nrd='npm run dev'
+alias nrd='nrdh' # We always need `--host` inside the container
+alias nrdh='npm run dev -- --host 0.0.0.0'
 alias nrt='npm run test'
 alias nrl='npm run lint'
 alias nrp='npm run prettier'
+alias nrc='npm run clean'
 alias nrb='npm run build'
 alias nrdp='npm run deploy'
 alias np='npm pack'

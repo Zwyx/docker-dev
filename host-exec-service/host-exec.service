@@ -1,0 +1,23 @@
+[Unit]
+Description=Host command execution for Docker Dev
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=%h/dev/docker-dev/host-exec-service/host-exec.sh
+Restart=on-failure
+RestartSec=5
+
+# View with `journalctl --user -u host-exec.service`
+StandardOutput=journal
+StandardError=journal
+
+# Security hardening
+PrivateTmp=yes
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=%h/.docker-dev
+
+[Install]
+WantedBy=default.target

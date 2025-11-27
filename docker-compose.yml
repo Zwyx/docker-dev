@@ -1,17 +1,24 @@
+name: docker
 services:
-  docker-dev:
-    build: .
-    container_name: docker-dev
+  dev:
+    build:
+      context: .
+      args:
+        USERNAME: ${USER}
+    container_name: dev
     volumes:
-      - ~/repo:/workspace
-      - ~/.nvm:/home/user/.nvm
-    ports:
-      - "3000:3000"
-      - "3001:3001"
-      - "5173:5173"
-      - "5174:5174"
-      - "8080:8080"
-      - "8081:8081"
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+
+      - ~/.docker-dev:/home/${USER}/.docker-dev
+      - ~/.nvm:/home/${USER}/.nvm
+
+      # Replace `dev` by the name of your main workspace folder
+      - ~/dev:/home/${USER}/dev
+
+      # If you use the file `~/.config/git/ignore`, activate this line:
+      #- ~/.config/git/ignore:/home/${USER}/.config/git/ignore
+
     network_mode: bridge
     stdin_open: true
     tty: true

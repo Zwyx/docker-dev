@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Script to send a command request to the host command execution service
+# Usage: host-exec-sublime-merge <args>
+
+set -e
+
+COMMAND_FILE="$HOME/.docker-dev/command"
+LOG_FILE="$HOME/.docker-dev/host-exec.log"
+
+log() {
+	echo "[$(date '+%Y-%m-%d %H:%M:%S')] $*" | tee -a "$LOG_FILE"
+}
+
+# Build command with tab-separated arguments
+args=""
+for arg in "$@"; do
+	if [[ -n "$args" ]]; then
+		args="$args	$arg" # Tab character
+	else
+		args="$arg"
+	fi
+done
+
+command="$PWD
+/home/alex/dev/config/misc/open-in-sublime-merge.sh
+$args"
+
+log "Sending command to host: $command"
+
+echo "$command" > "$COMMAND_FILE"

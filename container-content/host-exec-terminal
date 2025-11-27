@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Script to send a command request to the host command execution service
+# Usage: host-exec-terminal
+
+set -e
+
+COMMAND_FILE="$HOME/.docker-dev/command"
+LOG_FILE="$HOME/.docker-dev/host-exec.log"
+
+log() {
+	echo "[$(date '+%Y-%m-%d %H:%M:%S')] $*" | tee -a "$LOG_FILE"
+}
+
+command="$PWD
+gnome-terminal"
+
+log "Sending command to host: $command"
+
+echo "$command" > "$COMMAND_FILE"
