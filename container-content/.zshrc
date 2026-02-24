@@ -4,11 +4,11 @@ export ZSH="$HOME/.oh-my-zsh"
 # Set theme
 ZSH_THEME="robbyrussell"
 
-# Load oh-my-zsh
-source $ZSH/oh-my-zsh.sh
-
 # Remind to update Oh My Zsh
 zstyle ':omz:update' mode reminder
+
+# Load oh-my-zsh
+source $ZSH/oh-my-zsh.sh
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
