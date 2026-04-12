@@ -65,3 +65,18 @@ alias nv='npm version'
 alias nvmj='npm version major'
 alias nvmn='npm version minor'
 alias nvp='npm version patch'
+
+# Bun
+[ -s "/home/alex/.bun/_bun" ] && source "/home/alex/.bun/_bun"
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+alias b='bun'
+alias bi='bun i'
+alias ba='bun a'
+alias bad='bun a --dev'
+alias brm='bun rm'
+alias bs='bun start'
+alias br='bun run'
+alias bt='bun test'
+alias btw='bun test --watch'
+alias bre='bun repl'
